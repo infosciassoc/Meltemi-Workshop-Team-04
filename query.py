@@ -91,5 +91,5 @@ text_refine_prompt = SelectorPromptTemplate(
 def get_response(query, index):
     query_engine = index.as_query_engine(
     llm=meltemi, text_qa_prompt=text_qa_prompt, text_refine_prompt=text_refine_prompt)
-    response = str(query_engine.query(query))
+    response = query_engine.query(query)
     return response

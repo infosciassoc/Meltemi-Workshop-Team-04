@@ -1,7 +1,6 @@
-from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings
+from llama_index.core import VectorStoreIndex
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core.node_parser import SemanticSplitterNodeParser
-from llama_index.llms.litellm import LiteLLM
 
 embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-m3")
 

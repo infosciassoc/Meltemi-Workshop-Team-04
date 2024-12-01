@@ -4,7 +4,7 @@ from wikipedia_tool import fetch_wikipedia_content
 from retriever import create_index
 from query import get_response
 
-
+content=''
 
 st.title("Wikipedia Question Answering using LlamaIndex and Meltemi")
 st.write("Enter a Wikipedia article title, and ask questions about it!")
@@ -23,7 +23,7 @@ if st.button("Fetch Article"):
 
 if content:
     with st.spinner("Building index..."):
-        document = Document(content, extra_info={"source": f"Wikipedia: {article_title}"})
+        document = Document(text=content)
         index = create_index([document])
     
     # Input: User Question
@@ -33,5 +33,6 @@ if content:
         # Query the Index
         with st.spinner("Getting the answer..."):
             response = get_response(question, index)
+            print(response)
             st.write("**Answer:**")
             st.success(response)
